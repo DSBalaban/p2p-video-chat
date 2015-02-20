@@ -1,0 +1,19 @@
+
+.navbar {
+  border-radius: 0;
+}
+.no-margin-bottom {
+  margin-bottom: 0;
+}
+.border-bot-secondary {
+  border-bottom: 1px solid crimson;
+}
+.border-bot-main {
+  border-bottom: 1px solid #03221f;
+}
+a {
+  color: #ed365b;
+}
+.bg-main {
+  background-color: #03221f;
+}

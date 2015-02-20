@@ -1,0 +1,22 @@
+{
+  "name": "P2PChat",
+  "version": "0.0.0",
+  "authors": [
+    "dsbalaban"
+  ],
+  "main": "app/index.html",
+  "moduleType": [
+    "amd"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "resolutions": {
+    "angular": "~1.3.13"
+  }
+}

@@ -1,0 +1,36 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>P2PChatToBe</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/css/style.css">
+
+    <!--<link rel="stylesheet" href="../build/static/css/style.min.css">-->
+</head>
+
+<body>
+
+    <nav class="navbar navbar-inverse border-bot-secondary no-margin-bottom" role="navigation">
+        <div class = 'container'>
+            <div class="navbar-header">
+                <a class="navbar-brand" ui-sref="#">App 2 B</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a ui-sref="home">Home</a></li>
+                <li><a ui-sref="about">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class = 'text-center border-bot-main'>
+        <div class = 'container-fluid jumbotron no-margin-bottom' id = "header" ui-view="headers">
+
+        </div>
+    </div>
+
+    <script data-main="app/main.js" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.16/require.js"></script>
+
+</body>
+</html>
