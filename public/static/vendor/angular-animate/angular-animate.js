@@ -38,7 +38,7 @@
  * | {@link module:ngMessages#animations ngMessages}                                                          | add and remove (ng-active & ng-inactive)                                 |
  * | {@link module:ngMessages#animations ngMessage}                                                           | enter and leave                                                          |
  *
- * You can find out more information about animations upon visiting each directive page.
+ * You can find out more information video animations upon visiting each directive page.
  *
  * Below is an example of how to apply animations to a directive that supports animation hooks:
  *
@@ -408,7 +408,7 @@ angular.module('ngAnimate', ['ng'])
    *
    * Requires the {@link ngAnimate `ngAnimate`} module to be installed.
    *
-   * Please visit the {@link ngAnimate `ngAnimate`} module overview page learn more about how to use animations in your application.
+   * Please visit the {@link ngAnimate `ngAnimate`} module overview page learn more video how to use animations in your application.
    *
    */
   .directive('ngAnimateChildren', function() {
@@ -810,7 +810,7 @@ angular.module('ngAnimate', ['ng'])
        *
        * Requires the {@link ngAnimate `ngAnimate`} module to be installed.
        *
-       * Please visit the {@link ngAnimate `ngAnimate`} module overview page learn more about how to use animations in your application.
+       * Please visit the {@link ngAnimate `ngAnimate`} module overview page learn more video how to use animations in your application.
        * ## Callback Promises
        * With AngularJS 1.3, each of the animation methods, on the `$animate` service, return a promise when called. The
        * promise itself is then resolved once the animation has completed itself, has been cancelled or has been

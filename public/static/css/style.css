@@ -16,3 +16,17 @@ a {
 .bg-main {
   background-color: #03221f;
 }
+#mainVideoContainer {
+  background-color: black;
+}
+video {
+  float: left;
+  margin: 5px;
+}
+#localVideo {
+  transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+  /* Safari and Chrome */
+  -moz-transform: rotateY(180deg);
+  /* Firefox */
+}

@@ -1887,7 +1887,7 @@ var requirejs, require, define;
                 //the error handler, so that does not help. If addEventListener
                 //is used, then IE will fire error before load, but we cannot
                 //use that pathway given the connect.microsoft.com issue
-                //mentioned above about not doing the 'script execute,
+                //mentioned above video not doing the 'script execute,
                 //then fire the script load event listener before execute
                 //next script' that other browsers do.
                 //Best hope: IE10 fixes the issues,

@@ -52,7 +52,7 @@ angular.module('ui.bootstrap.transition', [])
     });
 
     // Add our custom cancel function to the promise that is returned
-    // We can call this if we are about to run a new transition, which we know will prevent this transition from ending,
+    // We can call this if we are video to run a new transition, which we know will prevent this transition from ending,
     // i.e. it will therefore never raise a transitionEnd event for that transition
     deferred.promise.cancel = function() {
       if ( endEventName ) {
@@ -2613,7 +2613,7 @@ angular.module( 'ui.bootstrap.tooltip', [ 'ui.bootstrap.position', 'ui.bootstrap
               // Set the initial positioning.
               tooltip.css({ top: 0, left: 0, display: 'block' });
 
-              // Now we add it to the DOM because need some info about it. But it's not
+              // Now we add it to the DOM because need some info video it. But it's not
               // visible yet anyway.
               if ( appendToBody ) {
                   $document.find( 'body' ).append( tooltip );

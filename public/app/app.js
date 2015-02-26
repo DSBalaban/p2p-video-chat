@@ -4,11 +4,14 @@
 
     define([
         'angular',
-        'home/home-ctrl',
-        'services/chat-bubble',
+        'home-ctrl',
+        'chat-bubble',
+        'peer-conn',
+        'client-video',
+        'client-video-ctrl',
         'angular-ui-router',
         'angular-animate'
-    ], function(angular, homeCtrl, chatBubble) {
+    ], function(angular, homeCtrl, chatBubble, peerConn, clientVideoDirective, clientVideoCtrl) {
         var app = angular.module('app', ['ui.router', 'ngAnimate']);
         app.init = function() {
             if (document.readyState === 'interactive' || document.readyState === 'complete') {
@@ -23,7 +26,10 @@
         };
 
         app.service('ChatBubble', chatBubble);
+        app.service('PeerConn', peerConn);
+        app.directive('clientVideo', clientVideoDirective);
         app.controller('HomeCtrl', homeCtrl);
+        app.controller('ClientVideoCtrl', clientVideoCtrl);
 
         app.config(function($stateProvider, $urlRouterProvider) {
             $urlRouterProvider.otherwise('/home');
@@ -39,14 +45,15 @@
                     }
                 })
 
-                .state('about', {
-                    url: '/about',
+                .state('video', {
+                    url: '/video',
                     views: {
-                        'headers': {
-                            templateUrl: 'app/about/partial-about.html'
+                        'video': {
+                            templateUrl: 'app/video/partial-client-video.html',
+                            controller: 'ClientVideoCtrl'
                         }
                     }
-                });
+                })
         });
 
         return app;

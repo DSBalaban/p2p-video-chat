@@ -19,12 +19,16 @@
             </div>
             <ul class="nav navbar-nav">
                 <li><a ui-sref="home">Home</a></li>
-                <li><a ui-sref="about">About</a></li>
+                <li><a ui-sref="video">Main Video</a></li>
             </ul>
         </div>
     </nav>
 
-    <div class = 'text-center border-bot-main'>
+    <div  id="mainVideoContainer">
+        <div class = 'container' ui-view="video"></div>
+    </div>
+
+    <div class='text-center border-bot-main'>
         <div class = 'container-fluid jumbotron no-margin-bottom' id = "header" ui-view="headers">
 
         </div>
