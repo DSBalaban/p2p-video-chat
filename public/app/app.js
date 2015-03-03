@@ -32,27 +32,36 @@
         app.controller('ClientVideoCtrl', clientVideoCtrl);
 
         app.config(function($stateProvider, $urlRouterProvider) {
-            $urlRouterProvider.otherwise('/home');
+
+            /*Equivalent of $urlRouterProvider.otherwise(''); that does not change URL.*/
+            /*$stateProvider.state("otherwise", {
+                url: "*path",
+                views: {
+                    'headers': {
+                        templateUrl: "app/error/partial-error.html"
+                    }
+                }
+            });*/
 
             $stateProvider
-                .state('home', {
-                    url: '/home',
-                    views: {
-                        'headers': {
-                            templateUrl: 'app/home/partial-home.html',
-                            controller: 'HomeCtrl'
-                        }
+                .state('video', {
+                    url: '',
+                    templateUrl: 'app/video/partial-video.html',
+                    controller: 'ClientVideoCtrl'
+                })
+                .state('video.call', {
+                    url: '/:id',
+                    templateUrl: '',
+                    controller: function($state, $stateParams, $scope) {
+                        $scope.$parent.call($stateParams.id);
+                        $state.go('video');
                     }
                 })
-
-                .state('video', {
-                    url: '/video',
-                    views: {
-                        'video': {
-                            templateUrl: 'app/video/partial-client-video.html',
-                            controller: 'ClientVideoCtrl'
-                        }
-                    }
+                .state('video.chat', {
+                    templateUrl: 'app/chat/partial-chat.html'
+                })
+                .state('video.tutorial', {
+                    template: 'Ailailailai test'
                 })
         });
 

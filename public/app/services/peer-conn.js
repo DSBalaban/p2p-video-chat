@@ -18,12 +18,12 @@
 
             peer.on('open', function() {
                 console.log(peer.id);
+                createConnectionLink(peer.id);
             })
                 .on('error', function(err){
                     console.error(err);
                 })
                 .on('call', function(call) {
-                    console.log('yay');
                     call.answer(window.localStream);
                     handleCall(call);
                 });
@@ -32,6 +32,11 @@
                 call.on('stream', function(stream) {
                     document.getElementById('remoteVideo').setAttribute('src', URL.createObjectURL(stream));
                 });
+            }
+
+            function createConnectionLink(peerID) {
+                var connectionUrl = document.location.origin + '/' + peerID;
+                console.log(connectionUrl);
             }
 
             return {

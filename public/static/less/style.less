@@ -21,12 +21,8 @@ a {
   color: lighten(@theme-secondary-color, 10%);
 }
 
-.bg-main {
-  background-color: @theme-main-color;
-}
-
 #mainVideoContainer {
-  background-color: black;
+  background: url('../img/dark_dotted2.png');
 }
 
 video {
@@ -36,7 +32,22 @@ video {
 
 #localVideo
 {
+  /*position: absolute;*/
   transform: rotateY(180deg);
   -webkit-transform:rotateY(180deg); /* Safari and Chrome */
   -moz-transform:rotateY(180deg); /* Firefox */
+  /*bottom: 20px;
+  right: 20px;
+  z-index: 1;*/
 }
+/*
+
+div[client-video] {
+  position: relative;
+  width: 100%;
+}
+
+#remoteVideo {
+  position: relative;
+  z-index: 0;
+}*/

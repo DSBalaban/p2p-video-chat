@@ -3,7 +3,7 @@ require.config({
         'angular' : '../static/vendor/angular/angular.min',
         'angular-ui-router': '../static/vendor/angular-ui-router/release/angular-ui-router.min',
         'angular-animate': '../static/vendor/angular-animate/angular-animate.min',
-        'peerjs': '../../node_modules/peerjs/dist/peer',
+        'peerjs': '../static/vendor/peerjsmock/peer',
         'chat-bubble': 'services/chat-bubble',
         'home-ctrl': 'home/home-ctrl',
         'peer-conn': 'services/peer-conn',

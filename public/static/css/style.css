@@ -13,20 +13,32 @@
 a {
   color: #ed365b;
 }
-.bg-main {
-  background-color: #03221f;
-}
 #mainVideoContainer {
-  background-color: black;
+  background: url('../img/dark_dotted2.png');
 }
 video {
   float: left;
   margin: 5px;
 }
 #localVideo {
+  /*position: absolute;*/
   transform: rotateY(180deg);
   -webkit-transform: rotateY(180deg);
   /* Safari and Chrome */
   -moz-transform: rotateY(180deg);
   /* Firefox */
+  /*bottom: 20px;
+  right: 20px;
+  z-index: 1;*/
 }
+/*
+
+div[client-video] {
+  position: relative;
+  width: 100%;
+}
+
+#remoteVideo {
+  position: relative;
+  z-index: 0;
+}*/
