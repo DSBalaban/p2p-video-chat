@@ -2,11 +2,8 @@
 
     'use strict';
 
-    define(['peerjs'], function(Peer) {
-        var PeerConnection = function() {
-
-            var peer = new Peer({host: 'localhost', port: 9000, path: '/app', debug: 3,
-                config: {'iceServers': [{ url: 'stun:stun.l.google.com:19302' }]}});
+    define([], function() {
+        var PeerMediaConnection = function(PeerConn) {
 
             navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
             navigator.getUserMedia({audio: true, video: true}, function(stream) {
@@ -16,36 +13,38 @@
                 console.error(err);
             });
 
-            peer.on('open', function() {
-                console.log(peer.id);
-                createConnectionLink(peer.id);
+            PeerConn.on('open', function() {
+                console.log(PeerConn.id);
+                createConnectionLink(PeerConn.id);
             })
                 .on('error', function(err){
                     console.error(err);
                 })
                 .on('call', function(call) {
                     call.answer(window.localStream);
-                    handleCall(call);
+                    connectCall(call);
                 });
 
-            function handleCall(call) {
+            function connectCall(call) {
                 call.on('stream', function(stream) {
                     document.getElementById('remoteVideo').setAttribute('src', URL.createObjectURL(stream));
                 });
             }
 
             function createConnectionLink(peerID) {
-                var connectionUrl = document.location.origin + '/' + peerID;
+                var connectionUrl = document.location.href + '/' + peerID;
+                var copyInput = angular.element(document.querySelector('#copyInput'));
+                copyInput.attr('value', connectionUrl);
                 console.log(connectionUrl);
             }
 
             return {
                 call: function(id) {
-                    var call = peer.call(id, window.localStream);
-                    handleCall(call);
+                    var call = PeerConn.call(id, window.localStream);
+                    connectCall(call);
                 }
             }
         };
-        return [PeerConnection];
+        return ['PeerConn', PeerMediaConnection];
     });
 }());

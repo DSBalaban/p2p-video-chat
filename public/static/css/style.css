@@ -21,24 +21,13 @@ video {
   margin: 5px;
 }
 #localVideo {
-  /*position: absolute;*/
   transform: rotateY(180deg);
   -webkit-transform: rotateY(180deg);
   /* Safari and Chrome */
   -moz-transform: rotateY(180deg);
   /* Firefox */
-  /*bottom: 20px;
-  right: 20px;
-  z-index: 1;*/
 }
-/*
-
-div[client-video] {
-  position: relative;
-  width: 100%;
+.chat-text,
+.well {
+  margin-bottom: 2px;
 }
-
-#remoteVideo {
-  position: relative;
-  z-index: 0;
-}*/

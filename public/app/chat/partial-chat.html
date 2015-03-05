@@ -1,7 +1,13 @@
-<div class="row">
-    <div id="chat-bubble" class="text-center text-info">
-        <div class="col-md-12" class="chat-text">
-            bananas are amazing
+<div class="container">
+    <div class="text-center text-info">
+        <div class="col-md-12" ng-repeat="data in chatData track by $index">
+            <div class="well chat-text">{{data}}</div>
         </div>
     </div>
+    <form name="chatForm" class="input-group col-md-12" ng-submit="sendMessage(currentMessage)">
+        <input type="text" class="form-control" placeholder="Send a message!" ng-model="currentMessage" required>
+        <span class="input-group-btn">
+            <button class="btn btn-default" type="submit">Go!</button>
+        </span>
+    </form>
 </div>

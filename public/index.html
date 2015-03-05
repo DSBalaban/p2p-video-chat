@@ -11,14 +11,19 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-inverse border-bot-secondary no-margin-bottom" role="navigation">
+    <nav class="navbar navbar-inverse border-bot-secondary no-margin-bottom" role="navigation" ng-controller="NavBarCtrl">
         <div class = 'container'>
             <div class="navbar-header">
                 <a class="navbar-brand" ui-sref="#">App 2 B</a>
             </div>
             <ul class="nav navbar-nav">
-                <li><a ui-sref="home">Home</a></li>
             </ul>
+            <form class="navbar-form navbar-right">
+                <div class="form-group">
+                    <input id="copyInput" type="text" class="form-control" readonly>
+                    <button class="btn btn-danger" clip-copy="getTextToCopy()">Copy</button>
+                </div>
+            </form>
         </div>
     </nav>
 
