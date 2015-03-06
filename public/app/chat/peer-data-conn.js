@@ -2,7 +2,7 @@
     'use strict';
 
     define([], function() {
-        var PeerDataConnection = function(PeerConn, ChatCache, $rootScope) {
+        var PeerDataConnection = function(PeerConn, $rootScope, HumaneNotifier) {
             var caller, answerer;
             PeerConn.on('connection', function(conn) {
                 caller = conn;
@@ -21,6 +21,11 @@
                     handleCall(answerer);
                 },
                 send: function(message) {
+                    if(caller === undefined && answerer === undefined) {
+                        HumaneNotifier.error("Not connected to another party.");
+                        throw("Peer connection not established.");
+                    }
+
                     if(caller !== undefined) {
                         caller.send(message);
                     }else {
@@ -30,6 +35,6 @@
             }
         };
 
-        return ['PeerConn', 'ChatCache', '$rootScope', PeerDataConnection];
+        return ['PeerConn', '$rootScope', 'HumaneNotifier', PeerDataConnection];
     });
 }());

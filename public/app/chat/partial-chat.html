@@ -1,13 +1,18 @@
 <div class="container">
-    <div class="text-center text-info">
-        <div class="col-md-12" ng-repeat="data in chatData track by $index">
-            <div class="well chat-text">{{data}}</div>
+    <div class="row text-center text-info">
+        <div class="chat-text col-md-12">
+            <div class="well" ng-repeat="data in chatData track by $index">
+                <div>{{data}}</div>
+            </div>
         </div>
     </div>
+</div>
+<div class="row">
     <form name="chatForm" class="input-group col-md-12" ng-submit="sendMessage(currentMessage)">
-        <input type="text" class="form-control" placeholder="Send a message!" ng-model="currentMessage" required>
-        <span class="input-group-btn">
-            <button class="btn btn-default" type="submit">Go!</button>
-        </span>
+        <input id="chatInput" type="text" class="form-control" placeholder="Send a message!" ng-model="currentMessage"
+               chat-focus required>
+            <span class="input-group-btn">
+                <button id="chatBtn" class="btn btn-default" type="submit">Go!</button>
+            </span>
     </form>
 </div>

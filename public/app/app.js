@@ -5,18 +5,20 @@
     define([
         'angular',
         'zeroclipboard',
+        'humane-notif',
         'peer-conn',
         'peer-media-conn',
         'peer-data-conn',
         'client-video',
         'client-video-ctrl',
         'chat-cache',
+        'chat-focus-directive',
         'chat-ctrl',
         'angular-ui-router',
         'angular-animate',
         'angular-clip'
-    ], function(angular, ZeroClipboard, peerConn, peerMediaConn, peerDataConn, clientVideoDirective, clientVideoCtrl, chatCache,
-                chatCtrl) {
+    ], function(angular, ZeroClipboard, humaneNotifier, peerConn, peerMediaConn, peerDataConn, clientVideoDirective, clientVideoCtrl, chatCache,
+                chatFocusDirective, chatCtrl) {
         var app = angular.module('app', ['ui.router', 'ngAnimate', 'ngClipboard']);
         app.init = function() {
             if (document.readyState === 'interactive' || document.readyState === 'complete') {
@@ -36,13 +38,20 @@
         app.service('PeerConn', peerConn);
         app.service('PeerMediaConn', peerMediaConn);
         app.service('PeerDataConn', peerDataConn);
+        app.service('HumaneNotifier', humaneNotifier);
         app.factory('ChatCache', chatCache);
         app.directive('clientVideo', clientVideoDirective);
+        app.directive('chatFocus', chatFocusDirective);
         app.controller('ClientVideoCtrl', clientVideoCtrl);
         app.controller('ChatCtrl', chatCtrl);
-        app.controller('NavBarCtrl', function($scope) {
+        app.controller('NavBarCtrl', function($scope, HumaneNotifier) {
             $scope.getTextToCopy = function() {
                 var copyInput = angular.element(document.querySelector('#copyInput'));
+                if(!!copyInput) {
+                    HumaneNotifier.info("Copied to Clipboard");
+                }else {
+                    HumaneNotifier.error("Failed to Copy Link");
+                }
                 return copyInput.attr('value');
             }
         });

@@ -6,6 +6,8 @@ require.config({
         'angular-animate': '../static/vendor/angular-animate/angular-animate.min',
         'angular-clip': '../static/vendor/ng-clip/src/ngClip',
         'zeroclipboard': '../static/vendor/zeroclipboard/dist/ZeroClipboard',
+        'humane': '../static/vendor/humane/humane.min',
+        'humane-notif': 'services/humane-notifier',
         'peerjs': '../static/vendor/peerjsmock/peer',
         'peer-conn': 'peer-connection/peer-conn',
         'peer-media-conn': 'video/peer-media-conn',
@@ -13,6 +15,7 @@ require.config({
         'client-video': 'video/client-video-directive',
         'client-video-ctrl': 'video/client-video-ctrl',
         'chat-cache': 'chat/chat-cache',
+        'chat-focus-directive': 'chat/chat-focus-directive',
         'chat-ctrl': 'chat/chat-ctrl'
     },
     shim: {

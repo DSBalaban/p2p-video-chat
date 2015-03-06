@@ -37,6 +37,25 @@ video {
   -moz-transform:rotateY(180deg); /* Firefox */
 }
 
-.chat-text, .well {
+.well {
   margin-bottom: 2px;
+}
+
+.well:last-child {
+  margin-bottom: 48px;
+}
+#chatInput,
+#chatBtn {
+  border-radius: 0;
+}
+
+form[name="chatForm"] {
+  transition: all 0.5s ease;
+  margin-bottom: 0;
+  position: fixed;
+  bottom: -30px;
+  &:hover {
+    transition: all 0.5s ease;
+    bottom: 0;
+  }
 }
