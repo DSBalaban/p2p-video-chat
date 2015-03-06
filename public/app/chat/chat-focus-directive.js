@@ -15,7 +15,7 @@
                     element.bind('blur', function() {
                         element.parent().css({
                             'transition': 'all 0.5s ease',
-                            'bottom': '0'
+                            'bottom': '-30px'
                         });
                     });
                 }

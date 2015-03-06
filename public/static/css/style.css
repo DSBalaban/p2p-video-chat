@@ -1,6 +1,3 @@
-.navbar {
-  border-radius: 0;
-}
 .no-margin-bottom {
   margin-bottom: 0;
 }
@@ -32,10 +29,6 @@ video {
 }
 .well:last-child {
   margin-bottom: 48px;
-}
-#chatInput,
-#chatBtn {
-  border-radius: 0;
 }
 form[name="chatForm"] {
   transition: all 0.5s ease;
