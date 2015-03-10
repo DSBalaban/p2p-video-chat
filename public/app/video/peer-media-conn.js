@@ -14,7 +14,6 @@
             });
 
             PeerConn.on('open', function() {
-                console.log(PeerConn.id);
                 createConnectionLink(PeerConn.id);
             })
                 .on('error', function(err){
@@ -35,7 +34,6 @@
                 var connectionUrl = document.location.href + '/' + peerID;
                 var copyInput = angular.element(document.querySelector('#copyInput'));
                 copyInput.attr('value', connectionUrl);
-                console.log(connectionUrl);
             }
 
             return {

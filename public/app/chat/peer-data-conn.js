@@ -2,7 +2,7 @@
     'use strict';
 
     define([], function() {
-        var PeerDataConnection = function(PeerConn, $rootScope, HumaneNotifier) {
+        var PeerDataConnection = function($rootScope, PeerConn, HumaneNotifier) {
             var caller, answerer;
             PeerConn.on('connection', function(conn) {
                 caller = conn;
@@ -35,6 +35,6 @@
             }
         };
 
-        return ['PeerConn', '$rootScope', 'HumaneNotifier', PeerDataConnection];
+        return ['$rootScope', 'PeerConn', 'HumaneNotifier', PeerDataConnection];
     });
 }());

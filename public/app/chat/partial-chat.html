@@ -1,8 +1,10 @@
-<div class="container">
-    <div class="row text-center text-info">
-        <div class="chat-text col-md-12">
-            <div class="well" ng-repeat="data in chatData track by $index">
-                <div>{{data}}</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="chat-container col-md-12">
+            <div ng-repeat="data in chatData track by $index" ng-class="{'to-right': data.sender === 'me'}" class="bubble">
+                <blockquote>
+                    <p>{{data.message}}</p>
+                </blockquote>
             </div>
         </div>
     </div>
