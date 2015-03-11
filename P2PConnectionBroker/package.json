@@ -1,0 +1,8 @@
+{
+  "name": "P2PConnBroker",
+  "version": "0.0.1",
+  "description": "Connects two peers for p2p data transfer",
+  "dependencies": {
+
+  }
+}

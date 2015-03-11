@@ -21,8 +21,7 @@ a {
   margin-bottom: 5px;
 }
 video {
-  float: left;
-  margin: 5px;
+  margin: 1%;
 }
 #localVideo {
   transform: rotateY(180deg);
@@ -56,7 +55,7 @@ form[name="chatForm"] {
 div.bubble > blockquote {
   /* Fallback for web browsers that don't support RGBa */
   background-color: #f5f5f5;
-  /* RGBa with 0.6 opacity */
+  /* RGBa with 0.1 opacity */
   background-color: rgba(245, 245, 245, 0.1);
   /*IE 8*/
   -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";

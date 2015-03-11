@@ -25,9 +25,18 @@
                 });
 
             function connectCall(call) {
+                var remoteVid = angular.element(document.querySelector('#remoteVideo'));
                 call.on('stream', function(stream) {
-                    document.getElementById('remoteVideo').setAttribute('src', URL.createObjectURL(stream));
-                });
+                    remoteVid.attr('src', URL.createObjectURL(stream));
+                    remoteVid.removeClass('hide').parent().addClass('text-left');
+                })
+                    .on('close', function() {
+                        remoteVid.addClass('hide').parent().removeClass('text-left');
+                    });
+
+                window.onbeforeunload = function() {
+                    call.destroy();
+                }
             }
 
             function createConnectionLink(peerID) {
