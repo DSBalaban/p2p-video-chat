@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "Connects two peers for p2p data transfer",
   "dependencies": {
-
+    "express": "^4.12.2",
+    "peer": "^0.2.8",
   }
 }
