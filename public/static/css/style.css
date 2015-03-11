@@ -21,7 +21,7 @@ a {
   margin-bottom: 5px;
 }
 video {
-  margin: 1%;
+  margin: 5px 0;
 }
 #localVideo {
   transform: rotateY(180deg);
