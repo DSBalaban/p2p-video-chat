@@ -6,20 +6,25 @@
         'angular',
         'zeroclipboard',
         'humane-notif',
+        'webcam-status',
         'peer-conn',
         'peer-media-conn',
         'peer-data-conn',
+        'navbar-ctrl',
         'client-video',
         'client-video-ctrl',
+        'video-call',
+        'video-confirm-call',
         'chat-cache',
         'chat-focus-directive',
         'chat-ctrl',
         'angular-ui-router',
         'angular-animate',
-        'angular-clip'
-    ], function(angular, ZeroClipboard, humaneNotifier, peerConn, peerMediaConn, peerDataConn, clientVideoDirective, clientVideoCtrl, chatCache,
-                chatFocusDirective, chatCtrl) {
-        var app = angular.module('app', ['ui.router', 'ngAnimate', 'ngClipboard']);
+        'angular-clip',
+        'angular-bootstrap'
+    ], function(angular, ZeroClipboard, humaneNotifier, webcamStatus, peerConn, peerMediaConn, peerDataConn, navbarCtrl,
+                clientVideoDirective, clientVideoCtrl, videoCall, videoConfirmCall, chatCache, chatFocusDirective, chatCtrl) {
+        var app = angular.module('app', ['ui.router', 'ngAnimate', 'ngClipboard', 'ui.bootstrap']);
         app.init = function() {
             if (document.readyState === 'interactive' || document.readyState === 'complete') {
                 angular.bootstrap(document.documentElement, [app.name]);
@@ -31,30 +36,22 @@
                 };
             }
         };
-
-        /*obviously not optimal*/
+        /*obviously not optimal: shim did not work*/
         window.ZeroClipboard = ZeroClipboard;
 
+        app.service('WebcamStatus', webcamStatus);
         app.service('PeerConn', peerConn);
         app.service('PeerMediaConn', peerMediaConn);
         app.service('PeerDataConn', peerDataConn);
         app.service('HumaneNotifier', humaneNotifier);
-        app.factory('ChatCache', chatCache);
+        app.service('ChatCache', chatCache);
         app.directive('clientVideo', clientVideoDirective);
         app.directive('chatFocus', chatFocusDirective);
         app.controller('ClientVideoCtrl', clientVideoCtrl);
+        app.controller('VideoCall', videoCall);
+        app.controller('VideoCallConfirm', videoConfirmCall);
         app.controller('ChatCtrl', chatCtrl);
-        app.controller('NavBarCtrl', function($scope, HumaneNotifier) {
-            $scope.getTextToCopy = function() {
-                var copyInput = angular.element(document.querySelector('#copyInput'));
-                if(!!copyInput) {
-                    HumaneNotifier.info("Copied to Clipboard");
-                }else {
-                    HumaneNotifier.error("Failed to Copy Link");
-                }
-                return copyInput.attr('value');
-            }
-        });
+        app.controller('NavBarCtrl', navbarCtrl);
 
         app.config(function($stateProvider, $urlRouterProvider) {
             $urlRouterProvider.otherwise('video');
@@ -67,18 +64,15 @@
                 .state('video.call', {
                     url: '/{id:[a-zA-Z0-9]{16}}',
                     templateUrl: '',
-                    controller: function($state, $stateParams, $scope) {
-                        $scope.$parent.call($stateParams.id);
-                        $state.go('video');
-                    }
+                    controller: 'VideoCall'
                 })
                 .state('video.chat', {
                     templateUrl: 'app/chat/partial-chat.html',
                     controller: 'ChatCtrl'
                 })
-                .state('video.tutorial', {
-                    template: 'Ailailailai test'
-                })
+                .state('video.confirm', {
+                    controller: 'VideoCallConfirm'
+                });
         });
 
         return app;

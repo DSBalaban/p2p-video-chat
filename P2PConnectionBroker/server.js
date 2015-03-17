@@ -9,9 +9,12 @@ var express = require('express'),
     next();
 };
 
-app.get('/', function(req, res, next) { res.send("NodeJS: Connecting people."); });
-var server = app.listen(9000);
+app.get('/', function(req, res) { res.send("NodeJS: Connecting people."); });
+var server = app.listen(9000, function() {
+    console.log('Listening on port 9000');
+});
 var options = {
+    allow_discovery: true,
     debug: true
 };
 app.use('/app', ExpressPeerServer(server, options));

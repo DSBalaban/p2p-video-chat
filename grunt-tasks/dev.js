@@ -3,14 +3,21 @@ module.exports = function(grunt) {
     grunt.config('watch', {
         less: {
             files: ['public/static/less/**/*.less'],
-            tasks: ['less:dev']
+            tasks: ['less:dev', 'autoprefixer']
         }
     });
 
     grunt.registerTask('dev', function(env) {
         grunt.task.run([
             'watch'
-        ])
+        ]);
+    });
+
+    grunt.registerTask('prefixless', function(env) {
+        grunt.task.run([
+            'less:dev',
+            'autoprefixer'
+        ]);
     });
 
     grunt.registerTask('testbuild', function(env) {
@@ -20,6 +27,6 @@ module.exports = function(grunt) {
             'concat:css',
             'cssmin',
             'requirejs'
-        ])
+        ]);
     });
 };
