@@ -5,7 +5,7 @@ module.exports = function(grunt) {
                 expand: true,
                 cwd: 'public/static/less',
                 src: ['*.less'],
-                dest: 'public/static/css',
+                dest: '.temp/static/css',
                 ext: '.css'
             }]
         },

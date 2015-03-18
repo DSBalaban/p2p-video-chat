@@ -1,7 +1,6 @@
 (function() {
     define([], function() {
         var cache = function($cacheFactory) {
-            console.log('HIIII I r ChatCache');
             var Cache = $cacheFactory('chatData');
             var chatHistory = [];
             return {
