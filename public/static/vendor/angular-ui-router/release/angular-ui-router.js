@@ -2434,7 +2434,7 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
    *
    *   angular.forEach(views, function (env, name) {
    *     var autoName = (state.name + '.' + name).replace('.', '/');
-   *     env.templateUrl = env.templateUrl || '/webcam/' + autoName + '.html';
+   *     env.templateUrl = env.templateUrl || '/call/' + autoName + '.html';
    *     result[name] = env;
    *   });
    *   return result;
@@ -2450,8 +2450,8 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
    * // ...
    *
    * $state.go('home');
-   * // Auto-populates list and item views with /webcam/home/contact/list.html,
-   * // and /webcam/home/contact/item.html, respectively.
+   * // Auto-populates list and item views with /call/home/contact/list.html,
+   * // and /call/home/contact/item.html, respectively.
    * </pre>
    *
    * @param {string} name The name of the builder function to decorate. 

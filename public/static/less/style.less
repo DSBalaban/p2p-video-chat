@@ -2,6 +2,8 @@
 @themeSecondColor: teal;
 @mainChatColor: rgba(126, 63, 157, 1);
 @secondChatColor: rgba(25, 103, 190, 1);
+@clientVideoMaxHeight: 710px;
+@chatBgColor: rgba(54, 79, 52, 0.33);
 
 html, body {
   background: url('../img/darkwood.jpg') no-repeat center center fixed;
@@ -39,6 +41,7 @@ div[client-video] {
   flex-direction: row;
   justify-content: center;
   overflow: hidden;
+  max-height: @clientVideoMaxHeight;
 }
 
 #localVideo
@@ -54,7 +57,7 @@ div[client-video] {
 }
 
 .col:first-child {
-  flex: 3 2 20em!important;
+  flex: 2 2 20em!important;
   align-self: flex-end;
 }
 
@@ -63,28 +66,26 @@ div[client-video] {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  padding-bottom: 0.4%;
+  margin-bottom: 0.5%;
+  position: relative;
 }
 
 #sideChat {
   flex: 1;
   padding-bottom: 1%;
-  background-color: transparent;
-}
-
-.well {
-  margin-bottom: 2px;
-}
-
-.well:last-child {
-  margin-bottom: 48px;
+  background-color: @chatBgColor;
 }
 
 form[name="chatForm"] {
   transition: all 0.5s ease;
   margin-bottom: 0;
   position: fixed;
+  left: 0;
   bottom: -30px;
+}
+
+#sideChat, #chatBody, .chat-container {
+  overflow-y: auto;
 }
 
 .chat-container {
@@ -95,6 +96,7 @@ form[name="chatForm"] {
 .bubble {
   display: inherit;
 }
+
 .bubble:last-child {
   margin-bottom: 10px;
 }
@@ -107,27 +109,65 @@ div.bubble > blockquote {
   /*IE 8*/
   -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";
   word-wrap: break-word;
-  min-width: 40%;
-  max-width: 70%;
+  text-align: left;
+  max-width: 95%;
   -webkit-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.75);
   box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.75);
-  padding: 10.5px 21px;
-  margin: 0 0 10px;
-  border-left: 5px solid @secondChatColor;
-  border-right: 5px solid @secondChatColor;
-  border-radius: 5px;
+  padding: 2px 12px 2px 12px;
+  margin: 0 0 5px;
+  border-left: 2px solid @secondChatColor;
+  border-right: 4px solid @secondChatColor;
+  border-bottom-right-radius: 5px;
 }
 
 div.bubble.to-right > blockquote {
-  border-right: 5px solid @mainChatColor;
-  border-left: 5px solid @mainChatColor;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 0;
+  border-right: 2px solid @mainChatColor;
+  border-left: 4px solid @mainChatColor;
   text-align: right;
+  /*Flexbox's align right*/
   margin-left: auto;
+  margin-right: 1%;
 }
 
 blockquote > p {
-  font-size: 23px;
-  font-weight: bold;
+  font-size: 0.9em;
+  font-weight: 200;
   color: floralwhite;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-button {
+  width: 0;
+  height: 0;
+}
+::-webkit-scrollbar-thumb {
+  background: #e1e1e1;
+  border: 0 dotted #ffffff;
+  border-radius: 42px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #e1e1e1;
+}
+::-webkit-scrollbar-thumb:active {
+  background: #537369;
+}
+::-webkit-scrollbar-track {
+  background: #666666;
+  border: 0 dotted #ffffff;
+  border-radius: 0;
+}
+::-webkit-scrollbar-track:hover {
+  background: #666666;
+}
+::-webkit-scrollbar-track:active {
+  background: #535353;
+}
+::-webkit-scrollbar-corner {
+  background: transparent;
 }

@@ -1,20 +1,16 @@
-<div class="container">
-    <div class="row">
-        <div class="chat-container col-md-12">
-            <div ng-repeat="data in chatData track by $index" ng-class="{'to-right': data.sender === 'me'}" class="bubble">
-                <blockquote>
-                    <p>{{data.message}}</p>
-                </blockquote>
-            </div>
-        </div>
+<div class="chat-container">
+    <div ng-repeat="data in chatData track by $index" ng-class="{'to-right': data.sender === 'me'}" class="bubble">
+        <blockquote>
+            <p>{{data.message}}</p>
+        </blockquote>
     </div>
 </div>
 <div class="row">
     <form name="chatForm" class="input-group col-md-12" ng-submit="sendMessage(currentMessage)">
         <input id="chatInput" type="text" class="form-control" placeholder="Send a message!" ng-model="currentMessage"
                chat-focus required>
-            <span class="input-group-btn">
-                <button id="chatBtn" class="btn btn-default" type="submit">Go!</button>
-            </span>
+                <span class="input-group-btn">
+                    <button id="chatBtn" class="btn btn-default" type="submit">Go!</button>
+                </span>
     </form>
 </div>

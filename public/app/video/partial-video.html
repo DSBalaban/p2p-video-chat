@@ -1,10 +1,8 @@
 <div class='row text-center border-bot-secondary' id="mainVideoContainer">
     <div class='col-md-12' client-video></div>
-    <a ui-sref=".chat" class="btn btn-primary">Chat</a>
-    <a ui-sref=".confirm" class="btn btn-info">Nogg</a>
-</div>
-
-<div class="row" id="chatBody">
-    <div class="col-md-12" ui-view></div>
+    <a class="btn btn-default text-danger" ng-click="hangUp()" ng-show="callStatus.active">
+        Hang Up
+        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+    </a>
 </div>
 

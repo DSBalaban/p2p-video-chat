@@ -1,6 +1,6 @@
 {
   "name": "P2PVideoChat",
-  "version": "0.0.1",
+  "version": "0.1",
   "author": "Dan",
   "devDependencies": {
     "angular-mocks": "^1.3.13",

@@ -6,7 +6,7 @@
         'angular',
         'zeroclipboard',
         'humane-notif',
-        'webcam-status',
+        'call-status',
         'peer-conn',
         'peer-media-conn',
         'peer-data-conn',
@@ -22,7 +22,7 @@
         'angular-animate',
         'angular-clip',
         'angular-bootstrap'
-    ], function(angular, ZeroClipboard, humaneNotifier, webcamStatus, peerConn, peerMediaConn, peerDataConn, navbarCtrl,
+    ], function(angular, ZeroClipboard, humaneNotifier, callStatus, peerConn, peerMediaConn, peerDataConn, navbarCtrl,
                 clientVideoDirective, clientVideoCtrl, videoCall, videoConfirmCall, chatCache, chatFocusDirective, chatCtrl) {
         var app = angular.module('app', ['ui.router', 'ngAnimate', 'ngClipboard', 'ui.bootstrap']);
         app.init = function() {
@@ -33,13 +33,13 @@
                     if (document.readyState === 'interactive') {
                         angular.bootstrap(document.documentElement, [app.name]);
                     }
-                };
+                }
             }
         };
         /*obviously not optimal: shim did not work*/
         window.ZeroClipboard = ZeroClipboard;
 
-        app.service('WebcamStatus', webcamStatus);
+        app.service('CallStatus', callStatus);
         app.service('PeerConn', peerConn);
         app.service('PeerMediaConn', peerMediaConn);
         app.service('PeerDataConn', peerDataConn);

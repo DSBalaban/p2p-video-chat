@@ -9,7 +9,7 @@ require.config({
         'zeroclipboard': '../static/vendor/zeroclipboard/dist/ZeroClipboard',
         'humane': '../static/vendor/humane/humane.min',
         'humane-notif': 'services/humane-notifier',
-        'webcam-status': 'webcam/webcam-status',
+        'call-status': 'call/call-status',
         'peerjs': '../static/vendor/peerjsmock/peer',
         'peer-conn': 'peer-connection/peer-conn',
         'peer-media-conn': 'video/peer-media-conn',
