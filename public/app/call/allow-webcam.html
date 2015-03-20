@@ -1,0 +1,7 @@
+<div class="modal-header"><h4>Pick up, will ye?</h4></div>
+<div class="modal-body"><h3>To be able to accept calls, first allow the app to use your webcam.</h3></div>
+<div class="modal-footer">
+    <button class="btn btn-success" ng-disabled="!cameraStatus.webcamAllowed" ng-click="answerCall()">Accept</button>
+    <button class="btn btn-danger" ng-click="declineCall()">Decline</button>
+</div>
+

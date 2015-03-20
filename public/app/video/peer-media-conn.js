@@ -3,14 +3,14 @@
     'use strict';
 
     define([], function() {
-        var PeerMediaConnection = function(PeerConn, WebcamStatus, $state) {
-            var conversant;
+        var PeerMediaConnection = function(PeerConn, CallStatus, $state, $rootScope) {
+            var conversant, hangUpPressed = false;
             navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
 
             if(navigator.getUserMedia) {
                 navigator.getUserMedia({audio: true, video: true},
                     function(stream) {
-                        WebcamStatus.allowed = true;
+                        CallStatus.webcamAllowed = true;
                         document.getElementById('localVideo').setAttribute('src', URL.createObjectURL(stream));
                         window.localStream = stream;
                 },  function(err) {
@@ -33,12 +33,19 @@
 
             function connectCall(call) {
                 var remoteVid = angular.element(document.querySelector('#remoteVideo'));
+                CallStatus.active = true;
                 call.on('stream', function(stream) {
                     remoteVid.attr('src', URL.createObjectURL(stream));
                     remoteVid.parent().removeClass('hide').addClass('text-left');
-                })
+                    $state.go('video.chat');
+                    })
                     .on('close', function() {
                         remoteVid.parent().addClass('hide').removeClass('text-left');
+                        if(!hangUpPressed) {
+                            $rootScope.$apply(function() {
+                                CallStatus.active = false;
+                            });
+                        }
                     });
 
                 window.onbeforeunload = function() {
@@ -61,16 +68,17 @@
                     if(!!conversant) {
                         conversant.answer(window.localStream);
                         connectCall(conversant);
+                    }else {
+                        console.error("No conversant calls to answer.");
                     }
                 },
                 close: function() {
-                    if(!!conversant) {
-                        /*THIS LEAVES WEBSOCKETS OPEN*/
-                        PeerConn._cleanup();
-                    }
+                    hangUpPressed = true;
+                    PeerConn._cleanup();
+                    CallStatus.active = false;
                 }
             }
         };
-        return ['PeerConn', 'WebcamStatus', '$state', PeerMediaConnection];
+        return ['PeerConn', 'CallStatus', '$state', '$rootScope', PeerMediaConnection];
     });
 }());

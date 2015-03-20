@@ -2,28 +2,25 @@
     'use strict';
 
     define([], function() {
-        var confirmCall = function($scope, $modal, WebcamStatus, PeerMediaConn, $state) {
+        var confirmCall = function($scope, $modal, CallStatus, PeerMediaConn, $state) {
             var scope = $scope;
-            $scope.cameraStatus = WebcamStatus;
+            $scope.cameraStatus = CallStatus;
 
             var confirmModal = $modal.open({
-                templateUrl: 'app/webcam/allow-webcam.html',
+                templateUrl: 'app/call/allow-webcam.html',
                 size: 'sm',
-                scope: scope
+                scope: scope,
+                backdrop: 'static'
             });
 
             confirmModal.result.then(
                 function(acceptMessage) {
-                    console.log(acceptMessage);
-                    if(acceptMessage === 'accepted') {
-                        PeerMediaConn.answer();
-                        $state.go('video');
-                    }
-
+                    PeerMediaConn.answer();
+                    $state.go('^');
                 },
                 function(rejectMessage) {
-                        console.log(rejectMessage);
-                        PeerMediaConn.close();
+                    PeerMediaConn.close();
+                    $state.go('^');
                 }
             );
 
@@ -36,6 +33,6 @@
             }
         };
 
-        return ['$scope', '$modal', 'WebcamStatus', 'PeerMediaConn', '$state', confirmCall];
+        return ['$scope', '$modal', 'CallStatus', 'PeerMediaConn', '$state', confirmCall];
     });
 }());
