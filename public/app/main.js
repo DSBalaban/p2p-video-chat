@@ -9,7 +9,7 @@ require.config({
         'zeroclipboard': '../static/vendor/zeroclipboard/dist/ZeroClipboard',
         'humane': '../static/vendor/humane/humane.min',
         'humane-notif': 'services/humane-notifier',
-        'webcam-status': 'webcam/webcam-status',
+        'call-status': 'call/call-status',
         'peerjs': '../static/vendor/peerjsmock/peer',
         'peer-conn': 'peer-connection/peer-conn',
         'peer-media-conn': 'video/peer-media-conn',
@@ -19,6 +19,7 @@ require.config({
         'client-video-ctrl': 'video/client-video-ctrl',
         'video-call': 'video/nested-states/video-call',
         'video-confirm-call': 'video/nested-states/video-confirm-call',
+        'video-hold-call': 'video/nested-states/video-hold-call',
         'chat-cache': 'chat/chat-cache',
         'chat-focus-directive': 'chat/chat-focus-directive',
         'chat-ctrl': 'chat/chat-ctrl'

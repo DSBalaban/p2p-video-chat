@@ -3,6 +3,7 @@ logs
 *.log
 
 .idea/
+.temp/
 
 
 # Runtime data
