@@ -1,4 +1,7 @@
 (function() {
+    /*
+        Cache service that retains chat history for the duration of the session
+     */
     define([], function() {
         var cache = function($cacheFactory) {
             var Cache = $cacheFactory('chatData');

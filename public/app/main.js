@@ -19,6 +19,7 @@ require.config({
         'client-video-ctrl': 'video/client-video-ctrl',
         'video-call': 'video/nested-states/video-call',
         'video-confirm-call': 'video/nested-states/video-confirm-call',
+        'video-hold-call': 'video/nested-states/video-hold-call',
         'chat-cache': 'chat/chat-cache',
         'chat-focus-directive': 'chat/chat-focus-directive',
         'chat-ctrl': 'chat/chat-ctrl'

@@ -5,7 +5,7 @@ module.exports = function(grunt) {
                 baseUrl: "public/app",
                 mainConfigFile: "public/app/main.js",
                 name: 'main',
-                out: "build/main.js",
+                out: "deploy/public/app/main.js",
                 uglify2: {
                     mangle: false
                 },

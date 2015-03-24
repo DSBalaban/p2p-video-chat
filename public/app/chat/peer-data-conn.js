@@ -1,6 +1,9 @@
 (function() {
     'use strict';
 
+    /*
+        Service that provides functionality for data transfer between peers, i.e chat
+     */
     define([], function() {
         var PeerDataConnection = function($rootScope, PeerConn, HumaneNotifier) {
             var caller, answerer;

@@ -15,6 +15,7 @@
         'client-video-ctrl',
         'video-call',
         'video-confirm-call',
+        'video-hold-call',
         'chat-cache',
         'chat-focus-directive',
         'chat-ctrl',
@@ -23,7 +24,7 @@
         'angular-clip',
         'angular-bootstrap'
     ], function(angular, ZeroClipboard, humaneNotifier, callStatus, peerConn, peerMediaConn, peerDataConn, navbarCtrl,
-                clientVideoDirective, clientVideoCtrl, videoCall, videoConfirmCall, chatCache, chatFocusDirective, chatCtrl) {
+                clientVideoDirective, clientVideoCtrl, videoCall, videoConfirmCall, videoHoldCall, chatCache, chatFocusDirective, chatCtrl) {
         var app = angular.module('app', ['ui.router', 'ngAnimate', 'ngClipboard', 'ui.bootstrap']);
         app.init = function() {
             if (document.readyState === 'interactive' || document.readyState === 'complete') {
@@ -50,6 +51,7 @@
         app.controller('ClientVideoCtrl', clientVideoCtrl);
         app.controller('VideoCall', videoCall);
         app.controller('VideoCallConfirm', videoConfirmCall);
+        app.controller('VideoCallHold', videoHoldCall);
         app.controller('ChatCtrl', chatCtrl);
         app.controller('NavBarCtrl', navbarCtrl);
 
@@ -72,6 +74,9 @@
                 })
                 .state('video.confirm', {
                     controller: 'VideoCallConfirm'
+                })
+                .state('video.hold', {
+                    controller: 'VideoCallHold'
                 });
         });
 

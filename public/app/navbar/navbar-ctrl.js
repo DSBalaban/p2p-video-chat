@@ -1,6 +1,8 @@
 (function() {
     'use strict';
-
+    /*
+        Navbar Controller, notifies successful / unsuccessful copy attempts via HumaneNotifier
+     */
     define([], function() {
         var navbarCtrl = function($scope, HumaneNotifier) {
             $scope.getTextToCopy = function() {

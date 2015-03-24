@@ -1,6 +1,10 @@
 (function() {
     'use strict';
 
+    /*
+        Directive that makes target element respond to user events such as hover, focus and blur (opposite of focus)
+        Currently applied to chat input element, named chatForm, inside partial-chat.html
+     */
     define([], function() {
         var focusChat = function() {
             return {

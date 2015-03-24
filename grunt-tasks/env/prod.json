@@ -1,4 +1,0 @@
-{
-  "type": "prod",
-  "root": "dist/<%= pkg.name %>_v<%= pkg.version>"
-}
