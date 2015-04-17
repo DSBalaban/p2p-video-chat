@@ -3,7 +3,7 @@
 
 (function(window, angular, undefined) {
   'use strict';
-
+  var ZeroClipboard;
   angular.module('ngClipboard', []).
     provider('ngClip', function() {
       var self = this;
@@ -15,7 +15,8 @@
         setConfig: function(config) {
           self.config = config;
         },
-        $get: function() {
+        $get: function(ZeroClipboardService) {
+          ZeroClipboard = ZeroClipboardService;
           return {
             path: self.path,
             config: self.config
@@ -28,7 +29,7 @@
         swfPath: ngClip.path,
         trustedDomains: ["*"],
         allowScriptAccess: "always",
-        forceHandCursor: true,
+        forceHandCursor: true
       };
       ZeroClipboard.config(angular.extend(config,ngClip.config || {}));
     }]).

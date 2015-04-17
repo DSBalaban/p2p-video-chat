@@ -262,7 +262,7 @@
   };
   /**
  * Get the presumed location of the "ZeroClipboard.swf" file, based on the location
- * of the executing JavaScript file (e.g. "ZeroClipboard.js", etc.).
+ * of the executing JavaScript file (e.g. "zero-clipboard.js", etc.).
  *
  * @returns String
  * @private

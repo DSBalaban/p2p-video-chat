@@ -14,6 +14,9 @@
                 addChatEntry: function(value) {
                     chatHistory.push(value);
                     Cache.put("chatEntries", chatHistory);
+                },
+                removeAll: function() {
+                    Cache.removeAll();
                 }
             }
         };

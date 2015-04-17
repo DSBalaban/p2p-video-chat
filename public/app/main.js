@@ -1,12 +1,14 @@
 require.config({
     baseUrl: 'app',
     paths: {
+        'json': '../static/vendor/requirejs-plugins/src/json',
         'angular' : '../static/vendor/angular/angular.min',
         'angular-ui-router': '../static/vendor/angular-ui-router/release/angular-ui-router.min',
         'angular-animate': '../static/vendor/angular-animate/angular-animate.min',
         'angular-clip': '../static/vendor/ng-clip/src/ngClip',
         'angular-bootstrap': '../static/vendor/angular-bootstrap/ui-bootstrap-tpls.min',
-        'zeroclipboard': '../static/vendor/zeroclipboard/dist/ZeroClipboard',
+        'zero-clipboard': '../static/vendor/zeroclipboard/dist/ZeroClipboard',
+        'zero-clip-service': 'services/zero-clipboard',
         'humane': '../static/vendor/humane/humane.min',
         'humane-notif': 'services/humane-notifier',
         'call-status': 'call/call-status',
@@ -14,6 +16,7 @@ require.config({
         'peer-conn': 'peer-connection/peer-conn',
         'peer-media-conn': 'video/peer-media-conn',
         'peer-data-conn': 'chat/peer-data-conn',
+        'peer-connection-properties': '',
         'navbar-ctrl': 'navbar/navbar-ctrl',
         'client-video': 'video/client-video-directive',
         'client-video-ctrl': 'video/client-video-ctrl',
@@ -41,7 +44,7 @@ require.config({
             deps: ['angular']
         },
         'angular-clip': {
-            deps: ['angular', 'zeroclipboard']
+            deps: ['angular', 'zero-clipboard']
         },
         'angular-bootstrap': {
             deps: ['angular']

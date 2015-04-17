@@ -1,10 +1,10 @@
 (function() {
-
     'use strict';
 
     define([
         'angular',
-        'zeroclipboard',
+        'zero-clipboard',
+        'zero-clip-service',
         'humane-notif',
         'call-status',
         'peer-conn',
@@ -23,8 +23,9 @@
         'angular-animate',
         'angular-clip',
         'angular-bootstrap'
-    ], function(angular, ZeroClipboard, humaneNotifier, callStatus, peerConn, peerMediaConn, peerDataConn, navbarCtrl,
-                clientVideoDirective, clientVideoCtrl, videoCall, videoConfirmCall, videoHoldCall, chatCache, chatFocusDirective, chatCtrl) {
+    ], function(angular, zeroClipboard, ZeroClipboard, humaneNotifier, callStatus, peerConn, peerMediaConn, peerDataConn,
+                navbarCtrl, clientVideoDirective, clientVideoCtrl, videoCall, videoConfirmCall, videoHoldCall, chatCache,
+                chatFocusDirective, chatCtrl) {
         var app = angular.module('app', ['ui.router', 'ngAnimate', 'ngClipboard', 'ui.bootstrap']);
         app.init = function() {
             if (document.readyState === 'interactive' || document.readyState === 'complete') {
@@ -37,8 +38,6 @@
                 }
             }
         };
-        /*obviously not optimal: shim did not work*/
-        window.ZeroClipboard = ZeroClipboard;
 
         app.service('CallStatus', callStatus);
         app.service('PeerConn', peerConn);
@@ -46,6 +45,7 @@
         app.service('PeerDataConn', peerDataConn);
         app.service('HumaneNotifier', humaneNotifier);
         app.service('ChatCache', chatCache);
+        app.service('ZeroClipboardService', ZeroClipboard);
         app.directive('clientVideo', clientVideoDirective);
         app.directive('chatFocus', chatFocusDirective);
         app.controller('ClientVideoCtrl', clientVideoCtrl);

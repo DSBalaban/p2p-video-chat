@@ -24,7 +24,6 @@
                     sender: 'them'
                 });
                 $scope.chatData = ChatCache.getChatHistory();
-
                 //Events don't apply the changes to the scope, applying manually.
                 $scope.$apply();
             });

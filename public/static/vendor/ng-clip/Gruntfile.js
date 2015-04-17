@@ -80,8 +80,8 @@ module.exports = function (grunt) {
     }
   });
 
-  // Load grunt-karma task plugin
-  grunt.loadNpmTasks('grunt-karma');
+  // Load grunt-tests task plugin
+  grunt.loadNpmTasks('grunt-tests');
 
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-jshint');

@@ -8,7 +8,6 @@
             - calling (indirectly)
             - ending calls
             - updating chat accordingly
-            -
      */
     define([], function() {
         var clientVideoCtrl = function($scope, $state, CallStatus, PeerMediaConn, PeerDataConn, ChatCache,
